@@ -1,7 +1,30 @@
-body {
+/*body {
 	background-image: url("../images/lyonnette/lyonnette_@2X.png");
+}*/
+
+/*palette
+#618685 dark
+#fefbd8 light
+#80ced6 bright
+#d5f4e6 light w/bright*/
+
+body {
+	/*font-family: 'Open Sans', sans-serif;*/
+	font-family: 'Oxygen Mono', monospace;
 }
 
-.container {
-	font-family: 'Courgette', cursive
+.jumbotron {
+	background-color: #618685;
+	color: #fefbd8;
+}
+
+#trainSchedule caption {
+	background-color: #618685;
+	color: #fefbd8;
+	padding-left:6px;
+}
+
+#trainSchedule thead {
+	background-color: #fefbd8;
+	color: #618685;
 }
