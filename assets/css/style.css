@@ -1,45 +1,67 @@
 /*palette
-#618685 dark
+#00ACE9 blue
+#D43F3F red
+#6A9A1F green
 #fefbd8 light
-#80ced6 bright
-#d5f4e6 light w/bright*/
-
+#404040 dark
+*/
 body {
-	/*font-family: 'Open Sans', sans-serif;*/
-	font-family: 'Oxygen Mono', monospace;
-	background-color: #d5f4e6;
+	font-family: 'Open Sans', sans-serif;	
+	background-color: #404040;
 }
 
 .jumbotron {
-	background-color: #80ced6;
-	color: #618685;
+	background-color: #D43F3F;
+	color: #fefbd8;
 }
 
-h4 {
-	background-color: #80ced6;
-	color: #618685;
-	font-weight: bold;
-	padding:4px;
+.form-control {
+	background-color: #fefbd8;
+	color: #404040;
 }
 
-#trainSchedule {
+#trainScheduleBody {
+	background-color: #fefbd8;
+	color: #404040;
+}
+
+#currentTrainSchedule {
 	border: solid 2px;
-	border-color: #80ced6;
+	border-color: #00ACE9;
+	background-color: #fefbd8;
+}
+
+#currentTrainSchedule .panel-heading {
+	background-color: #00ACE9;
+	color: #fefbd8;	
 }
 
 #trainSchedule thead {
 	background-color: #fefbd8;
-	color: #618685;
+	color: #00ACE9;
+}
+
+#addTrain {
+	border: solid 2px;
+	border-color: #6A9A1F;
+	background-color: #fefbd8;
+}
+
+#addTrain .panel-heading {
+	background-color: #6A9A1F;
+	color: #fefbd8;	
 }
 
 #addTrain form {
-	color: #618685;
-	border: solid 2px;
-	border-color: #80ced6;
-	padding-left: 6px;
+	color: #6A9A1F;
 }
 
 #addTrainButton {
-	background-color: #618685;
+	background-color: #6A9A1F;
+	color: #fefbd8;
+}
+
+.btnRemove {
+	background-color: #00ACE9;
 	color: #fefbd8;
 }

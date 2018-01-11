@@ -15,6 +15,8 @@ var config = {
 
 firebase.initializeApp(config);
 
+var dataRef = firebase.database();
+
 // From the input form, get the values and add to Firebase
 $("#addTrainButton").on("click",function(event){
 	event.preventDefault();
@@ -23,7 +25,7 @@ $("#addTrainButton").on("click",function(event){
 	trainFirstTimeDeparture = $("#inputTrainFirstTimeDeparture").val().trim();	
 	trainFrequency = $("#inputTrainFrequency").val().trim();
 // add to Firebase
-	firebase.database().ref().push({
+	dataRef.ref().push({
 		trainName: trainName,
 		trainDestination: trainDestination,
 		trainFirstTimeDeparture: trainFirstTimeDeparture,
@@ -33,11 +35,10 @@ $("#addTrainButton").on("click",function(event){
 });
 
 // Whenever a train is added to the firebase db, append a table row to the html
-// firebase.database().ref().on("child_added",function(snapshot){
-firebase.database().ref().orderByChild("trainName").on("child_added",function(snapshot){
+dataRef.ref().orderByChild("trainName").on("child_added",function(snapshot){
 
 var DBName = snapshot.key;
-console.log("FDB: " + DBName);
+// console.log("FDB: " + DBName);
 
 // Calculate the nextArrival and minutesAway using NOW and first time departure ex uses 1:50PM as NOW with train every 15 mins
 // declare new variables for each record
@@ -59,14 +60,14 @@ console.log("FDB: " + DBName);
 		"</td><td>" + outputTrainFrequency + 
 		"</td><td>" +  moment(nextArrival).format("hh:mm") + 
 		"</td><td>" +  minutesAway + 
-		"</td><td><button type='submit' class='btn btn-default' id='" + DBName + "'>Remove</button>" +  
+		"</td><td><button type='submit' class='btn btn-default btnRemove' id='" + DBName + "'>Remove</button>" +  
 		"</td></tr>");
 
+// delete
+// table needs to be manually refreshed
 $("#"+DBName).on("click",function(event){
-
-	console.log("remove train: " + DBName);
-	firebase.database().ref().child(DBName).remove();
-
+	// console.log("remove train: " + DBName);
+	dataRef.ref().child(DBName).remove();
 });
 
 // Clear input fields 
